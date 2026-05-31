@@ -14,9 +14,9 @@ export default clerkMiddleware(async (auth, request) => {
   const url = new URL(request.url);
 
      // 🚨 CRITICAL: allow webhook BEFORE anything else
-  if (url.pathname.startsWith("/api/webhooks/clerk")) {
-    return NextResponse.next();
-  }
+  // if (url.pathname.startsWith("/api/webhooks/clerk")) {
+  //   return NextResponse.next();
+  // }
   
     if(userId && isPublicRoute(request) && url.pathname !== "/"){
         return NextResponse.redirect(new URL("/dashboard", request.url));
